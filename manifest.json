@@ -1,0 +1,18 @@
+{
+  "name": "Foodie",
+  "short_name": "Foodie",
+  "description": "Персональный план питания под ваш бюджет",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f5efe6",
+  "theme_color": "#c9a97a",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#c9a97a">
+<title>Nutrition Planner</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <header>
+  <h1>Foodie</h1>
+  <p>Персональный план питания</p>
+  </header>
+
+  <!-- ПАРАМЕТРЫ -->
+  <section class="card">
+    <div class="row">
+      <div class="field">
+        <label>Рост (см)</label>
+        <input type="number" id="height" value="175" min="100" max="250">
+      </div>
+      <div class="field">
+        <label>Вес (кг)</label>
+        <input type="number" id="weight" value="70" min="30" max="300">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Возраст</label>
+        <input type="number" id="age" value="25" min="14" max="100">
+      </div>
+      <div class="field">
+        <label>Пол</label>
+        <select id="gender">
+          <option value="male">Мужской</option>
+          <option value="female">Женский</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Цель</label>
+      <select id="goal">
+        <option value="lose">Похудеть</option>
+        <option value="keep" selected>Поддерживать вес</option>
+        <option value="gain">Набрать массу</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Активность</label>
+      <select id="activity">
+        <option value="1.2">Минимальная</option>
+        <option value="1.375">Лёгкая (1–3 трен./нед)</option>
+        <option value="1.55" selected>Средняя (3–5 трен./нед)</option>
+        <option value="1.725">Высокая (6–7 трен./нед)</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Тип питания</label>
+      <select id="diet">
+        <option value="any">Без ограничений</option>
+        <option value="veg">Вегетарианское</option>
+        <option value="vegan">Веганское</option>
+        <option value="pesc">Пескетарианское</option>
+        <option value="halal">Халяль</option>
+        <option value="budget">Бюджетное</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Приёмы пищи для плана</label>
+      <div class="chips" id="mealChips">
+        <label class="chip"><input type="checkbox" value="breakfast" checked><span>Завтрак</span></label>
+        <label class="chip"><input type="checkbox" value="lunch" checked><span>Обед</span></label>
+        <label class="chip"><input type="checkbox" value="snack" checked><span>Перекус</span></label>
+        <label class="chip"><input type="checkbox" value="dinner" checked><span>Ужин</span></label>
+        <label class="chip"><input type="checkbox" value="dessert"><span>Десерт</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Что исключить</label>
+      <div class="chips" id="excludeChips">
+        <label class="chip"><input type="checkbox" value="nuts"><span>Орехи</span></label>
+        <label class="chip"><input type="checkbox" value="dairy"><span>Молочное</span></label>
+        <label class="chip"><input type="checkbox" value="gluten"><span>Глютен</span></label>
+        <label class="chip"><input type="checkbox" value="eggs"><span>Яйца</span></label>
+        <label class="chip"><input type="checkbox" value="fish"><span>Рыба</span></label>
+        <label class="chip"><input type="checkbox" value="seafood"><span>Морепродукты</span></label>
+        <label class="chip"><input type="checkbox" value="soy"><span>Соя</span></label>
+        <label class="chip"><input type="checkbox" value="pork"><span>Свинина</span></label>
+        <label class="chip"><input type="checkbox" value="beef"><span>Говядина</span></label>
+        <label class="chip"><input type="checkbox" value="chicken"><span>Курица</span></label>
+        <label class="chip"><input type="checkbox" value="mushrooms"><span>Грибы</span></label>
+        <label class="chip"><input type="checkbox" value="onion"><span>Лук</span></label>
+        <label class="chip"><input type="checkbox" value="garlic"><span>Чеснок</span></label>
+        <label class="chip"><input type="checkbox" value="tomato"><span>Томаты</span></label>
+        <label class="chip"><input type="checkbox" value="citrus"><span>Цитрусы</span></label>
+        <label class="chip"><input type="checkbox" value="honey"><span>Мёд</span></label>
+        <label class="chip"><input type="checkbox" value="sugar"><span>Сахар</span></label>
+        <label class="chip"><input type="checkbox" value="spicy"><span>Острое</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Любимые продукты (что добавить)</label>
+      <div class="chips" id="favChips">
+        <label class="chip"><input type="checkbox" value="chicken"><span>Курица</span></label>
+        <label class="chip"><input type="checkbox" value="fish"><span>Рыба</span></label>
+        <label class="chip"><input type="checkbox" value="beef"><span>Говядина</span></label>
+        <label class="chip"><input type="checkbox" value="eggs"><span>Яйца</span></label>
+        <label class="chip"><input type="checkbox" value="dairy"><span>Молочное</span></label>
+        <label class="chip"><input type="checkbox" value="tofu"><span>Тофу</span></label>
+        <label class="chip"><input type="checkbox" value="legumes"><span>Бобовые</span></label>
+        <label class="chip"><input type="checkbox" value="grains"><span>Крупы</span></label>
+        <label class="chip"><input type="checkbox" value="pasta"><span>Паста</span></label>
+        <label class="chip"><input type="checkbox" value="potato"><span>Картофель</span></label>
+        <label class="chip"><input type="checkbox" value="veggies"><span>Овощи</span></label>
+        <label class="chip"><input type="checkbox" value="greens"><span>Зелень</span></label>
+        <label class="chip"><input type="checkbox" value="fruits"><span>Фрукты</span></label>
+        <label class="chip"><input type="checkbox" value="berries"><span>Ягоды</span></label>
+        <label class="chip"><input type="checkbox" value="nuts"><span>Орехи</span></label>
+        <label class="chip"><input type="checkbox" value="avocado"><span>Авокадо</span></label>
+        <label class="chip"><input type="checkbox" value="cheese"><span>Сыр</span></label>
+        <label class="chip"><input type="checkbox" value="sweet"><span>Сладкое</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Где закупаетесь</label>
+      <select id="store">
+        <option value="discount">Дискаунтер (Пятёрочка, Магнит)</option>
+        <option value="hyper">Гипермаркет (Лента, Ашан)</option>
+        <option value="market">Рынок / фермерский</option>
+        <option value="online">Онлайн (Самокат, ВкусВилл)</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Бюджет на неделю (₽)</label>
+      <input type="number" id="budget" value="4000" min="500" step="100">
+    </div>
+
+    <button onclick="calculate()">Составить план</button>
+    <button class="ghost" onclick="resetAll()">Сбросить</button>
+  </section>
+
+  <!-- РЕЗУЛЬТАТ -->
+  <div class="result" id="result">
+    <div class="card">
+      <div class="big" id="calories">—</div>
+      <div class="big-label">ккал в день</div>
+      <div class="metric"><span>Белки</span><span id="protein">—</span></div>
+      <div class="metric"><span>Жиры</span><span id="fat">—</span></div>
+      <div class="metric"><span>Углеводы</span><span id="carbs">—</span></div>
+      <div class="metric"><span>ИМТ</span><span id="bmi">—</span></div>
+      <div class="metric"><span>Норма воды</span><span id="water">—</span></div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="today">День</button>
+      <button class="tab" data-tab="week">Неделя</button>
+      <button class="tab" data-tab="shopping">Покупки</button>
+      <button class="tab" data-tab="stats">Прогресс</button>
+    </div>
+
+    <div class="card tab-content active" id="tab-today">
+      <div class="section-title">Меню на сегодня</div>
+      <div id="menu"></div>
+    </div>
+
+    <div class="card tab-content" id="tab-week">
+      <div class="section-title">Меню на 7 дней</div>
+      <div id="weekMenu"></div>
+    </div>
+
+    <div class="card tab-content" id="tab-shopping">
+      <div class="section-title">Список покупок</div>
+      <ul class="plan" id="shopping"></ul>
+      <div class="note" id="tip"></div>
+    </div>
+
+    <div class="card tab-content" id="tab-stats">
+      <div class="section-title">Прогресс</div>
+      <div class="metric"><span>Записей</span><span id="statEntries">0</span></div>
+      <div class="metric"><span>Ккал/день</span><span id="statAvg">—</span></div>
+      <div class="metric"><span>Средний вес</span><span id="statWeight">—</span></div>
+
+      <div class="section-title" style="margin-top:16px">Дневник веса</div>
+      <div class="row" style="margin-bottom:8px">
+        <input type="number" id="logWeight" placeholder="Вес, кг" step="0.1">
+        <button style="width:auto;padding:10px 18px" onclick="logWeight()">+</button>
+      </div>
+      <ul class="plan" id="weightLog"></ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО: КАРТОЧКА БЛЮДА -->
+<div class="modal" id="modal">
+  <div class="modal-backdrop" onclick="closeModal()"></div>
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-hero" id="modalHero">🍽</div>
+    <h2 id="modalTitle">Блюдо</h2>
+    <div class="modal-meta" id="modalMeta"></div>
+
+    <div class="modal-section">
+      <div class="section-title">Ингредиенты</div>
+      <ul class="plan" id="modalIngredients"></ul>
+    </div>
+
+    <div class="modal-section">
+      <div class="section-title">Рецепт</div>
+      <ol class="recipe" id="modalRecipe"></ol>
+    </div>
+
+    <div class="modal-section">
+      <div class="section-title">Пищевая ценность (порция)</div>
+      <div class="metric"><span>Калории</span><span id="modalKcal">—</span></div>
+      <div class="metric"><span>Белки</span><span id="modalP">—</span></div>
+      <div class="metric"><span>Жиры</span><span id="modalF">—</span></div>
+      <div class="metric"><span>Углеводы</span><span id="modalC">—</span></div>
+    </div>
+  </div>
+</div>
+
+<script src="products.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
